@@ -70,7 +70,7 @@
             this.lbxFlavor.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lbxFlavor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbxFlavor.Enabled = false;
-            this.lbxFlavor.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxFlavor.Font = new System.Drawing.Font("Baskerville Old Face", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbxFlavor.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbxFlavor.Location = new System.Drawing.Point(12, 166);
             this.lbxFlavor.Name = "lbxFlavor";
