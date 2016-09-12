@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFlavors = new System.Windows.Forms.Label();
             this.lbxFlavors = new System.Windows.Forms.ListBox();
             this.exit = new System.Windows.Forms.Button();
             this.lbxFlavor = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblFlavors
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ice Cream Flavors";
+            this.lblFlavors.AutoSize = true;
+            this.lblFlavors.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlavors.Location = new System.Drawing.Point(12, 17);
+            this.lblFlavors.Name = "lblFlavors";
+            this.lblFlavors.Size = new System.Drawing.Size(172, 26);
+            this.lblFlavors.TabIndex = 0;
+            this.lblFlavors.Text = "Ice Cream Flavors";
             // 
             // lbxFlavors
             // 
@@ -85,9 +85,9 @@
             this.Controls.Add(this.lbxFlavor);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.lbxFlavors);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFlavors);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ice Cream";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFlavors;
         private System.Windows.Forms.ListBox lbxFlavors;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label lbxFlavor;

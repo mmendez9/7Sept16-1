@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,15 +25,39 @@ namespace _7Sept16_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbxFlavors.Items.Add("Vanilla");
-            lbxFlavors.Items.Add("Chocolate");
-            lbxFlavors.Items.Add("Strawberry");
-            lbxFlavors.Items.Add("Rocky Road");
+            string flavor;
+            try
+            {
+                // Open the data file for reading
+                StreamReader inputFile = File.OpenText("flavors.txt");
+
+                // Read all lines in the file
+                while (!inputFile.EndOfStream)
+                {
+                    // Read the next line
+                    flavor = inputFile.ReadLine();
+
+                    // Add it to the list box
+                    lbxFlavors.Items.Add(flavor);
+                }
+
+                // Close the file 
+                inputFile.Close();
+
+                // Display the number of flavors
+                lblFlavors.Text = lbxFlavors.Items.Count + " flavors available today";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ice Cream", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
 
+
         private void lbxFlavors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbxFlavor.Text = lbxFlavors.SelectedItem.ToString();
+        {        
+          lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";        
         }
     }
 }
