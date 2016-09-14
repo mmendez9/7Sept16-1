@@ -57,6 +57,7 @@
             // 
             // exit
             // 
+            this.exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit.Location = new System.Drawing.Point(17, 210);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(71, 27);

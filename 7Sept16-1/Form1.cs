@@ -18,11 +18,7 @@ namespace _7Sept16_1
             InitializeComponent();
         }
 
-        private void exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        bool exitWasClicked = false;
         private void Form1_Load(object sender, EventArgs e)
         {
             string flavor;
@@ -46,26 +42,48 @@ namespace _7Sept16_1
 
                 // Display the number of flavors
                 lblFlavors.Text = lbxFlavors.Items.Count + " flavors available today";
+
+                 
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ice Cream", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
-                     
-        }
 
+        }
 
         private void lbxFlavors_SelectedIndexChanged(object sender, EventArgs e)
-        {                
-            // Write the order in a file
-            StreamWriter orders = File.AppendText("Orders.txt");
-            
-            orders.WriteLine(lbxFlavors.SelectedItem.ToString());
-            
-            orders.Close();
+        {
             lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";
 
+            // Order's time and date
+                 string dateTime = DateTime.Now.ToString();
+                 StreamWriter orderOut = File.AppendText("Orders.txt");
+
+                for (int a = 1; a <= 10; a++)
+                {
+                    // Write the order in a file
+                    orderOut.WriteLine("Order #" + a + " " + dateTime);
+                    if (!exitWasClicked == true)
+                    {
+                        orderOut.WriteLine(lbxFlavors.SelectedItem.ToString());
+                    }
+                    else
+                    {
+                        orderOut.Close();
+                    }
+                    }
+                orderOut.Close();
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            exitWasClicked = true;
+            Close();
+            
+        }
+
     }
 }
