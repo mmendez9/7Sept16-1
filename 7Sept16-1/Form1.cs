@@ -52,12 +52,20 @@ namespace _7Sept16_1
                 MessageBox.Show(ex.Message, "Ice Cream", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
             }
+                     
         }
 
 
         private void lbxFlavors_SelectedIndexChanged(object sender, EventArgs e)
-        {        
-          lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";        
+        {                
+            // Write the order in a file
+            StreamWriter orders = File.AppendText("Orders.txt");
+            
+            orders.WriteLine(lbxFlavors.SelectedItem.ToString());
+            
+            orders.Close();
+            lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";
+
         }
     }
 }
