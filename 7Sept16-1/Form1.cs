@@ -19,6 +19,12 @@ namespace _7Sept16_1
         }
 
         bool exitWasClicked = false;
+
+        // Order's time and date
+        string dateTime = DateTime.Now.ToString();
+        // Open order file
+        StreamWriter orderOut = File.AppendText("Orders.txt");
+
         private void Form1_Load(object sender, EventArgs e)
         {
             string flavor;
@@ -43,7 +49,12 @@ namespace _7Sept16_1
                 // Display the number of flavors
                 lblFlavors.Text = lbxFlavors.Items.Count + " flavors available today";
 
-                 
+                // Write the order in a file
+                if (!exitWasClicked == true)
+                {
+                    orderOut.WriteLine(dateTime);
+                }
+                orderOut.Close();
 
             }
             catch (Exception ex)
@@ -55,27 +66,17 @@ namespace _7Sept16_1
         }
 
         private void lbxFlavors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";
+        {        
+            StreamWriter orderOut = File.AppendText("Orders.txt");
+            foreach (string item in lbxFlavors.SelectedItems)
+            {
+                lbxFlavor.Text = "Enjoy your " + lbxFlavors.SelectedItem.ToString() + " cone!";
 
-            // Order's time and date
-                 string dateTime = DateTime.Now.ToString();
-                 StreamWriter orderOut = File.AppendText("Orders.txt");
-
-                for (int a = 1; a <= 10; a++)
-                {
-                    // Write the order in a file
-                    orderOut.WriteLine("Order #" + a + " " + dateTime);
-                    if (!exitWasClicked == true)
-                    {
-                        orderOut.WriteLine(lbxFlavors.SelectedItem.ToString());
-                    }
-                    else
-                    {
-                        orderOut.Close();
-                    }
-                    }
-                orderOut.Close();
+                // Write the flavor seleccted in a file        
+                orderOut.WriteLine(lbxFlavors.SelectedItem.ToString());
+            }
+            orderOut.Close();
+            
         }
 
         private void exit_Click(object sender, EventArgs e)
