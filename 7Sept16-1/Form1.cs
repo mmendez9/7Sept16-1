@@ -81,10 +81,17 @@ namespace _7Sept16_1
 
         private void exit_Click(object sender, EventArgs e)
         {
+            // Open order
+            //StreamReader OrderOut = File.OpenText("Orders.txt");
+
             exitWasClicked = true;
-            Close();
             
         }
 
+        private void clear_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
+            MessageBoxButtons.OKCancel
+        }
     }
 }

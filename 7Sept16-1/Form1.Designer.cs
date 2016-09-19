@@ -32,6 +32,7 @@
             this.lbxFlavors = new System.Windows.Forms.ListBox();
             this.exit = new System.Windows.Forms.Button();
             this.lbxFlavor = new System.Windows.Forms.Label();
+            this.clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblFlavors
@@ -78,11 +79,22 @@
             this.lbxFlavor.Size = new System.Drawing.Size(260, 22);
             this.lbxFlavor.TabIndex = 3;
             // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(162, 210);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(60, 27);
+            this.clear.TabIndex = 4;
+            this.clear.Text = "Clear";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.lbxFlavor);
             this.Controls.Add(this.exit);
             this.Controls.Add(this.lbxFlavors);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.ListBox lbxFlavors;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Label lbxFlavor;
+        private System.Windows.Forms.Button clear;
     }
 }
 
