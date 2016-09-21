@@ -85,13 +85,26 @@ namespace _7Sept16_1
             //StreamReader OrderOut = File.OpenText("Orders.txt");
 
             exitWasClicked = true;
+
+            // Close the form
+            if (exitWasClicked == true)
+            {
+                StreamReader order = File.OpenText("Orders.txt");
+                MessageBox.Show(order.ReadToEnd(),"You ordered:", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
             
         }
 
         private void clear_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
-            MessageBoxButtons.OKCancel
+            DialogResult result = MessageBox.Show("Are you sure to CLEAR the order?", "Clear Order", 
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                lbxFlavor.ResetText();
+            }   
         }
     }
 }
